@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SphinxのCSSを変更する方法 &mdash; プロジェクト名  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> プロジェクト名
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/1.html">はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/2.html">初めてのsphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/3.html">初めてのsphinx</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">プロジェクト名</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>SphinxのCSSを変更する方法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sphinxのcss変更メモ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="sphinxcss">
+<span id="sphinxcss"></span><h1>SphinxのCSSを変更する方法<a class="headerlink" href="#sphinxcss" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="sphinx">
+<span id="sphinx"></span><h2>Sphinxのテーマ<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sphinx_rtd_theme</p>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h2>変更箇所<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>teach4meカラーになるようにCSSを一部変更しました。</li>
+<li>テキスト部分の右側余白を無くしました。</li>
+<li>ファビコンの画像を追加方法を記載します。（今回はロゴ画像が見当たらなかったためやっていません。）</li>
+</ul>
+<div class="section" id="conf-py">
+<span id="conf-py"></span><h3>conf.py<a class="headerlink" href="#conf-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ファイルの階層</p>
+<ul class="simple">
+<li>プロジェクトディレクトリ名/conf.py</li>
+</ul>
+<p>以下を追加しました。</p>
+<div class="highlight-conf.py notranslate"><div class="highlight"><pre><span></span>def setup(app):
+（省略）
+    app.add_transform(AutoStructify)
+    # ↓追記
+    app.add_stylesheet(&#39;custom.css&#39;)
+</pre></div>
+</div>
+<div class="highlight-conf.py notranslate"><div class="highlight"><pre><span></span>html_static_path = [&#39;_static&#39;]
+# ↓追記（CSS読み込み→画像は「_static/css」に保存）
+html_style = &quot;css/my_theme.css&quot;
+# ↓追記（ファビコン読み込み→画像は「_static」に保存）
+html_favicon = &quot;about_bg.png&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h3>ファビコンの画像ファイルの保存先<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>プロジェクトディレクトリ名/_build/html/_static/logo.png</li>
+</ul>
+</div>
+<div class="section" id="custom-css">
+<span id="custom-css"></span><h3>custom.css<a class="headerlink" href="#custom-css" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のファイルの階層にcustom.cssを作成します。</p>
+<ul class="simple">
+<li>プロジェクトディレクトリ名/_build/html/_static/custom.css</li>
+</ul>
+<p>以下を追加しました。</p>
+<div class="highlight-custom.css notranslate"><div class="highlight"><pre><span></span>@import url(&quot;theme.css&quot;);
+
+/* テキスト部分の幅（余白をなくす） */
+.wy-nav-content {
+    max-width: none;
+}
+/* .wy-nav-content {
+  max-width: 1200px !important;
+} */
+
+/* 検索バーの部分の色の変更 */
+.wy-side-nav-search {
+  /* background: linear-gradient(-45deg, rgb(254, 102, 125), rgb(255, 163, 117)); */
+  /* background: -webkit-linear-gradient(left, #fb8c01, #fe3000); */
+  background: -webkit-linear-gradient(left, #fe3000, #fb8c01);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    border-bottom: 1px solid #ccc;
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+}
+
+colgroup {
+    display: none;
+}
+
+/* 画面幅を縮めた時にヘッダー部分の色の変更 */
+@media screen and (max-width: 768px) {
+  .wy-nav-top {
+      display: block;
+      background: -webkit-linear-gradient(left, #fe3000, #fb8c01);
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="my-theme-css">
+<span id="my-theme-css"></span><h3>my_theme.css<a class="headerlink" href="#my-theme-css" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のファイルの階層にcustom.cssを作成します。</p>
+<ul class="simple">
+<li>プロジェクトディレクトリ名/_build/html/_static/css/my_theme.css</li>
+</ul>
+<p>以下を追加しました。（custom.cssと同じです。）</p>
+<div class="highlight-my_theme.css notranslate"><div class="highlight"><pre><span></span>@import url(&quot;theme.css&quot;);
+
+/* テキスト部分の幅（余白をなくす） */
+.wy-nav-content {
+    max-width: none;
+}
+/* .wy-nav-content {
+  max-width: 1200px !important;
+} */
+
+/* 検索バーの部分の色の変更 */
+.wy-side-nav-search {
+  /* background: linear-gradient(-45deg, rgb(254, 102, 125), rgb(255, 163, 117)); */
+  /* background: -webkit-linear-gradient(left, #fb8c01, #fe3000); */
+  background: -webkit-linear-gradient(left, #fe3000, #fb8c01);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    border-bottom: 1px solid #ccc;
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+}
+
+colgroup {
+    display: none;
+}
+
+/* 画面幅を縮めた時にヘッダー部分の色の変更 */
+@media screen and (max-width: 768px) {
+  .wy-nav-top {
+      display: block;
+      background: -webkit-linear-gradient(left, #fe3000, #fb8c01);
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="url">
+<span id="url"></span><h2>参考URL<a class="headerlink" href="#url" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/23211695/modifying-content-width-of-the-sphinx-theme-read-the-docs">custom.cssについて</a>
+<a class="reference external" href="http://kuttsun.blogspot.com/2016/11/sphinx-sphinxrtdtheme.html">my_theme.cssについて</a></p>
+<p><a class="reference external" href="https://gradienthunt.com/gradient/429">CSSカラー</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/44793811/change-the-colors-of-the-sphinx-read-the-docs-theme">ちょっとだけ参考にした</a></p>
+<p><a class="reference external" href="http://candyhouse.black/confpy.html">ファビコン挿入について</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, 会社名.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
